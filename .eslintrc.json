@@ -19,18 +19,27 @@
         "prettier"
     ],
     "rules": {
+      "no-underscore-dangle": "off",
+      "no-useless-constructor": "off",
       "prettier/prettier": "error",
+      "class-methods-use-this": "off",
+      "eslint/camelcase": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/interface-name-prefix": "off",
+      "@typescript-eslint/no-unused-vars": ["error", {
+        "argsIgnorePattern": "_"
+      }],
       "import/extensions": [
         "error",
         "ignorePackages",
         {
-          "ts": "never",
-        },
-      ],
+          "ts": "never"
+        }
+      ]
     },
   "settings": {
     "import/resolver": {
       "typescript": {}
-    },
-  },
+    }
+  }
 }
