@@ -23,6 +23,44 @@ class ToolsRepository implements IToolsRepository {
       throw new Error(error.message);
     }
   }
+
+  public async findAllTools(): Promise<Tool[]> {
+    try {
+      const tools = await this.ormRepository.find();
+
+      return tools;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  public async removeTool(id: string): Promise<void> {
+    try {
+      const tool = await this.ormRepository.findOne(id);
+
+      if (!tool) {
+        throw new Error('Tool not found!');
+      }
+
+      await this.ormRepository.remove(tool);
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  public async findToolByID(id: string): Promise<Tool | undefined> {
+    try {
+      const tool = await this.ormRepository.findOne(id);
+
+      if (!tool) {
+        throw new Error('Tool not found!');
+      }
+
+      return tool;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
 }
 
 export default ToolsRepository;

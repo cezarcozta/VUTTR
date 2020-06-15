@@ -1,5 +1,5 @@
 export default interface ICreateToolDTO {
-  name: string;
+  title: string;
   url: string;
   description: string;
   tags: [];

@@ -2,16 +2,18 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 import CreateToolService from '@modules/tools/services/CreateToolService';
+import ListToolsService from '@modules/tools/services/ListToolsService';
+import RemoveToolService from '@modules/tools/services/RemoveToolService';
 
 export default class ToolsController {
   public async create(request: Request, response: Response): Promise<Response> {
-    const { name, url, description, tags } = request.body;
+    const { title, url, description, tags } = request.body;
 
     const createTool = container.resolve(CreateToolService);
 
     try {
       const tool = await createTool.execute({
-        name,
+        title,
         url,
         description,
         tags,
@@ -24,49 +26,27 @@ export default class ToolsController {
   }
 
   public async index(request: Request, response: Response): Promise<Response> {
-    const tools = [
-      {
-        id: 1,
-        name: 'Notion',
-        url: 'https://notion.so',
-        description: 'Description of notion',
-        tags: ['organization, planning, colaboration'],
-      },
-      {
-        id: 2,
-        name: 'Notion',
-        url: 'https://notion.so',
-        description: 'Description of notion',
-        tags: ['organization, planning, colaboration'],
-      },
-    ];
-    return response.json(tools);
+    const listTool = container.resolve(ListToolsService);
+
+    try {
+      const tools = await listTool.execute();
+
+      return response.json(tools);
+    } catch (error) {
+      throw new Error(error.message);
+    }
   }
 
   public async remove(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
+    try {
+      const removeTool = container.resolve(RemoveToolService);
 
-    const tools = [
-      {
-        id: 1,
-        name: 'Notion',
-        url: 'https://notion.so',
-        description: 'Description of notion',
-        tags: ['organization, planning, colaboration'],
-      },
-      {
-        id: 2,
-        name: 'Notion',
-        url: 'https://notion.so',
-        description: 'Description of notion',
-        tags: ['organization, planning, colaboration'],
-      },
-    ];
+      await removeTool.execute({ id });
 
-    const findToolIndex = tools.findIndex(tool => tool.id === Number(id));
-    tools.splice(findToolIndex, 1);
-    // eslint-disable-next-line no-console
-    console.log(tools);
-    return response.status(204).json();
+      return response.status(204).json();
+    } catch (error) {
+      throw new Error(error.message);
+    }
   }
 }

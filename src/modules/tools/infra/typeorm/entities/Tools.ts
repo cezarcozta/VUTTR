@@ -4,12 +4,8 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToMany,
   Column,
-  JoinColumn,
 } from 'typeorm';
-
-import Tags from '../../../../tags/infra/typeorm/entities/Tags';
 
 @Entity('tools')
 class Tools {
@@ -17,11 +13,13 @@ class Tools {
   id: string;
 
   @Column()
-  name: string;
+  title: string;
 
-  @OneToMany(() => Tags, tags => tags.tools)
-  @JoinColumn({ name: 'tags_id' })
-  tags: Tags[];
+  @Column()
+  url: string;
+
+  @Column()
+  description: string;
 
   @CreateDateColumn()
   created_at: Date;

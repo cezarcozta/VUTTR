@@ -1,9 +1,4 @@
-import {
-  MigrationInterface,
-  QueryRunner,
-  Table,
-  TableForeignKey,
-} from 'typeorm';
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export default class CreateToolsTable1591972056892
   implements MigrationInterface {
@@ -20,13 +15,17 @@ export default class CreateToolsTable1591972056892
             default: 'uuid_generate_v4()',
           },
           {
-            name: 'name',
+            name: 'title',
             type: 'varchar',
             isUnique: true,
           },
           {
-            name: 'tags_id',
-            type: 'uuid',
+            name: 'url',
+            type: 'varchar',
+          },
+          {
+            name: 'description',
+            type: 'varchar',
           },
           {
             name: 'created_at',
@@ -41,23 +40,9 @@ export default class CreateToolsTable1591972056892
         ],
       }),
     );
-
-    await queryRunner.createForeignKey(
-      'tools',
-      new TableForeignKey({
-        name: 'tools_tags',
-        columnNames: ['tags_id'],
-        referencedColumnNames: ['id'],
-        referencedTableName: 'tags',
-        onDelete: 'SET NULL',
-        onUpdate: 'CASCADE',
-      }),
-    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('tools', 'tools_tags');
-
     await queryRunner.dropTable('tools');
   }
 }
