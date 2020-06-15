@@ -1,6 +1,8 @@
 import 'reflect-metadata';
 import 'express-async-errors';
 
+import '../typeorm';
+
 import express from 'express';
 import cors from 'cors';
 

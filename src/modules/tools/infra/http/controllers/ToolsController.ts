@@ -5,13 +5,13 @@ import CreateToolService from '@modules/tools/services/CreateToolService';
 
 export default class ToolsController {
   public async create(request: Request, response: Response): Promise<Response> {
-    const { title, url, description, tags } = request.body;
+    const { name, url, description, tags } = request.body;
 
     const createTool = container.resolve(CreateToolService);
 
     try {
       const tool = await createTool.execute({
-        title,
+        name,
         url,
         description,
         tags,
@@ -27,14 +27,14 @@ export default class ToolsController {
     const tools = [
       {
         id: 1,
-        title: 'Notion',
+        name: 'Notion',
         url: 'https://notion.so',
         description: 'Description of notion',
         tags: ['organization, planning, colaboration'],
       },
       {
         id: 2,
-        title: 'Notion',
+        name: 'Notion',
         url: 'https://notion.so',
         description: 'Description of notion',
         tags: ['organization, planning, colaboration'],
@@ -49,14 +49,14 @@ export default class ToolsController {
     const tools = [
       {
         id: 1,
-        title: 'Notion',
+        name: 'Notion',
         url: 'https://notion.so',
         description: 'Description of notion',
         tags: ['organization, planning, colaboration'],
       },
       {
         id: 2,
-        title: 'Notion',
+        name: 'Notion',
         url: 'https://notion.so',
         description: 'Description of notion',
         tags: ['organization, planning, colaboration'],

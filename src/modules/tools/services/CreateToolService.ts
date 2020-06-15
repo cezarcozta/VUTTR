@@ -4,7 +4,7 @@ import IToolsRepository from '../repositories/IToolsRepository';
 import Tool from '../infra/typeorm/entities/Tools';
 
 interface IRequest {
-  title: string;
+  name: string;
   url: string;
   description: string;
   tags: [];
@@ -18,14 +18,14 @@ class CreateToolService {
   ) {}
 
   public async execute({
-    title,
+    name,
     url,
     description,
     tags,
   }: IRequest): Promise<Tool> {
     try {
       const tool = await this.toolsRepository.createAndSave({
-        title,
+        name,
         url,
         description,
         tags,
@@ -33,7 +33,7 @@ class CreateToolService {
 
       return tool;
     } catch (error) {
-      throw new Error();
+      throw new Error(error.message);
     }
   }
 }

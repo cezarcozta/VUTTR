@@ -17,7 +17,7 @@ class Tools {
   id: string;
 
   @Column()
-  title: string;
+  name: string;
 
   @OneToMany(() => Tags, tags => tags.tools)
   @JoinColumn({ name: 'tags_id' })
