@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import ToolsController from '../controllers/ToolsController';
+import ToolsController from '@modules/tools/infra/http/controllers/ToolsController';
 
 const toolsRouter = Router();
 const toolsController = new ToolsController();
