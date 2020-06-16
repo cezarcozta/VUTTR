@@ -5,17 +5,30 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   Column,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm';
 
+import Tools from './Tools';
+import Tags from '../../../../tags/infra/typeorm/entities/Tag';
+
 @Entity('tools_tags')
-class Tools {
+class ToolsTags {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('uuid')
+  @ManyToOne(() => Tools)
+  @JoinColumn({ name: 'tool_id' })
+  tool: Tools;
+
+  @ManyToOne(() => Tags)
+  @JoinColumn({ name: 'tag_id' })
+  tag: Tags;
+
+  @Column()
   tool_id: string;
 
-  @Column('uuid')
+  @Column()
   tag_id: string;
 
   @CreateDateColumn()
@@ -24,4 +37,4 @@ class Tools {
   @UpdateDateColumn()
   updated_at: Date;
 }
-export default Tools;
+export default ToolsTags;

@@ -5,10 +5,10 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   Column,
-  ManyToMany,
+  OneToMany,
 } from 'typeorm';
 
-import Tool from '../../../../tools/infra/typeorm/entities/Tools';
+import ToolsTags from '@modules/tools/infra/typeorm/entities/ToolsTags';
 
 @Entity('tags')
 class Tools {
@@ -18,8 +18,8 @@ class Tools {
   @Column()
   title: string;
 
-  @ManyToMany(() => Tool)
-  tools: Tool[];
+  @OneToMany(() => ToolsTags, tools => tools.tag)
+  tools_tags: ToolsTags[];
 
   @CreateDateColumn()
   created_at: Date;

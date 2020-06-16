@@ -5,11 +5,10 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   Column,
-  ManyToMany,
-  JoinTable,
+  OneToMany,
 } from 'typeorm';
 
-import Tags from '../../../../tags/infra/typeorm/entities/Tag';
+import ToolsTags from './ToolsTags';
 
 @Entity('tools')
 class Tools {
@@ -22,12 +21,14 @@ class Tools {
   @Column()
   url: string;
 
-  @ManyToMany(() => Tags)
-  @JoinTable()
-  tags: Tags[];
-
   @Column()
   description: string;
+
+  @OneToMany(() => ToolsTags, tool => tool.tool, {
+    cascade: true,
+    eager: true,
+  })
+  tools_tags: ToolsTags[];
 
   @CreateDateColumn()
   created_at: Date;

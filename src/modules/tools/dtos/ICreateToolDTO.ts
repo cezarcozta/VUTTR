@@ -1,6 +1,7 @@
+/* eslint-disable camelcase */
 interface ITag {
-  id: string;
-  title: string;
+  tag_id: string;
+  tag_title: string;
 }
 
 export default interface ICreateToolDTO {

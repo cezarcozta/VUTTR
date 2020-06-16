@@ -16,9 +16,9 @@ class TagsRepository implements ITagsRepository {
     this.ormRepository = getRepository(Tag);
   }
 
-  public async createAndSave(tagData: ICreateTagDTO): Promise<Tag> {
+  public async createAndSave({ title }: ICreateTagDTO): Promise<Tag> {
     try {
-      const tag = this.ormRepository.create(tagData);
+      const tag = this.ormRepository.create({ title });
 
       await this.ormRepository.save(tag);
 
@@ -55,10 +55,6 @@ class TagsRepository implements ITagsRepository {
   public async findTagByTitle(title: string): Promise<Tag | undefined> {
     try {
       const tag = await this.ormRepository.findOne({ where: { title } });
-
-      if (!tag) {
-        throw new Error('Tool not found!');
-      }
 
       return tag;
     } catch (error) {
