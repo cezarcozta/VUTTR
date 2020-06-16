@@ -1,9 +1,14 @@
 import Tag from '../infra/typeorm/entities/Tag';
-import ICreateToolDTO from '../dtos/ICreateTagDTO';
+import ICreateTagDTO from '../dtos/ICreateTagDTO';
+
+interface IFindTags {
+  title: string;
+}
 
 export default interface IToolsRepository {
-  createAndSave(data: ICreateToolDTO): Promise<Tag>;
+  createAndSave(data: ICreateTagDTO): Promise<Tag>;
   removeTag(id: string): Promise<void>;
   findAllTags(): Promise<Tag[]>;
-  findTagByID(id: string): Promise<Tag | undefined>;
+  findAllTagsByTitle(tags: IFindTags[]): Promise<Tag[]>;
+  findTagByTitle(title: string): Promise<Tag | undefined>;
 }

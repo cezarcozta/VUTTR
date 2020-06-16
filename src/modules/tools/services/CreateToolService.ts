@@ -3,11 +3,17 @@ import { injectable, inject } from 'tsyringe';
 import IToolsRepository from '../repositories/IToolsRepository';
 import Tool from '../infra/typeorm/entities/Tools';
 
+import ITagsRepository from '../../tags/repositories/ITagsRepository';
+
+interface ITag {
+  title: string;
+}
+
 interface IRequest {
   title: string;
   url: string;
   description: string;
-  tags: [];
+  tags: ITag[];
 }
 
 @injectable()
@@ -15,6 +21,9 @@ class CreateToolService {
   constructor(
     @inject('ToolsRepository')
     private toolsRepository: IToolsRepository,
+
+    @inject('TagsRepository')
+    private tagsRepository: ITagsRepository,
   ) {}
 
   public async execute({
@@ -24,12 +33,16 @@ class CreateToolService {
     tags,
   }: IRequest): Promise<Tool> {
     try {
-      const tool = await this.toolsRepository.createAndSave({
+      const allTags = await this.tagsRepository.findAllTagsByTitle(tags);
+
+      const dataTool = {
         title,
         url,
         description,
-        tags,
-      });
+        tags: allTags,
+      };
+
+      const tool = await this.toolsRepository.createAndSave(dataTool);
 
       return tool;
     } catch (error) {

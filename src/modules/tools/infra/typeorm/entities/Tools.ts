@@ -5,7 +5,11 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   Column,
+  ManyToMany,
+  JoinTable,
 } from 'typeorm';
+
+import Tags from '../../../../tags/infra/typeorm/entities/Tag';
 
 @Entity('tools')
 class Tools {
@@ -17,6 +21,10 @@ class Tools {
 
   @Column()
   url: string;
+
+  @ManyToMany(() => Tags)
+  @JoinTable()
+  tags: Tags[];
 
   @Column()
   description: string;

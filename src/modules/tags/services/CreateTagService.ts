@@ -16,6 +16,12 @@ class CreateTagService {
 
   public async execute({ title }: IRequest): Promise<Tag> {
     try {
+      const checkIfTagExists = await this.tagsRepository.findTagByTitle(title);
+
+      if (checkIfTagExists) {
+        throw new Error('Tag already exists');
+      }
+
       const tag = await this.tagsRepository.createAndSave({
         title,
       });

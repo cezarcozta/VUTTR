@@ -5,21 +5,18 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   Column,
-  ManyToMany,
 } from 'typeorm';
 
-import Tool from '../../../../tools/infra/typeorm/entities/Tools';
-
-@Entity('tags')
+@Entity('tools_tags')
 class Tools {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
-  title: string;
+  @Column('uuid')
+  tool_id: string;
 
-  @ManyToMany(() => Tool)
-  tools: Tool[];
+  @Column('uuid')
+  tag_id: string;
 
   @CreateDateColumn()
   created_at: Date;

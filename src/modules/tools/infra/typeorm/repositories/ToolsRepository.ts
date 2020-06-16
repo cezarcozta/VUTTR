@@ -13,9 +13,9 @@ class ToolsRepository implements IToolsRepository {
   }
 
   public async createAndSave(toolData: ICreateToolDTO): Promise<Tool> {
-    const tool = this.ormRepository.create(toolData);
-
     try {
+      const tool = this.ormRepository.create(toolData);
+
       await this.ormRepository.save(tool);
 
       return tool;

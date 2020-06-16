@@ -1,9 +1,13 @@
-import { getRepository, Repository } from 'typeorm';
+import { getRepository, Repository, In } from 'typeorm';
 
 import ITagsRepository from '@modules/tags/repositories/ITagsRepository';
 import ICreateTagDTO from '@modules/tags/dtos/ICreateTagDTO';
 
 import Tag from '@modules/tags/infra/typeorm/entities/Tag';
+
+interface IFindTags {
+  title: string;
+}
 
 class TagsRepository implements ITagsRepository {
   private ormRepository: Repository<Tag>;
@@ -13,12 +17,12 @@ class TagsRepository implements ITagsRepository {
   }
 
   public async createAndSave(tagData: ICreateTagDTO): Promise<Tag> {
-    const tool = this.ormRepository.create(tagData);
-
     try {
-      await this.ormRepository.save(tool);
+      const tag = this.ormRepository.create(tagData);
 
-      return tool;
+      await this.ormRepository.save(tag);
+
+      return tag;
     } catch (error) {
       throw new Error(error.message);
     }
@@ -26,9 +30,9 @@ class TagsRepository implements ITagsRepository {
 
   public async findAllTags(): Promise<Tag[]> {
     try {
-      const tools = await this.ormRepository.find();
+      const tags = await this.ormRepository.find();
 
-      return tools;
+      return tags;
     } catch (error) {
       throw new Error(error.message);
     }
@@ -36,30 +40,36 @@ class TagsRepository implements ITagsRepository {
 
   public async removeTag(id: string): Promise<void> {
     try {
-      const tool = await this.ormRepository.findOne(id);
+      const tags = await this.ormRepository.findOne(id);
 
-      if (!tool) {
+      if (!tags) {
         throw new Error('Tool not found!');
       }
 
-      await this.ormRepository.remove(tool);
+      await this.ormRepository.remove(tags);
     } catch (error) {
       throw new Error(error.message);
     }
   }
 
-  public async findTagByID(id: string): Promise<Tag | undefined> {
+  public async findTagByTitle(title: string): Promise<Tag | undefined> {
     try {
-      const tool = await this.ormRepository.findOne(id);
+      const tag = await this.ormRepository.findOne({ where: { title } });
 
-      if (!tool) {
+      if (!tag) {
         throw new Error('Tool not found!');
       }
 
-      return tool;
+      return tag;
     } catch (error) {
       throw new Error(error.message);
     }
+  }
+
+  public async findAllTagsByTitle(tags: IFindTags[]): Promise<Tag[]> {
+    const tagsList = await this.ormRepository.find({ title: In(tags) });
+
+    return tagsList;
   }
 }
 
