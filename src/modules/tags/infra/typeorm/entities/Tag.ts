@@ -18,7 +18,10 @@ class Tools {
   @Column()
   title: string;
 
-  @OneToMany(() => ToolsTags, tools => tools.tag)
+  @OneToMany(() => ToolsTags, tag => tag.tag, {
+    eager: true,
+    cascade: true,
+  })
   tools_tags: ToolsTags[];
 
   @CreateDateColumn()

@@ -12,9 +12,19 @@ class ToolsRepository implements IToolsRepository {
     this.ormRepository = getRepository(Tool);
   }
 
-  public async createAndSave(toolData: ICreateToolDTO): Promise<Tool> {
+  public async createAndSave({
+    title,
+    url,
+    description,
+    tags,
+  }: ICreateToolDTO): Promise<Tool> {
     try {
-      const tool = this.ormRepository.create(toolData);
+      const tool = this.ormRepository.create({
+        title,
+        url,
+        description,
+        tools_tags: tags,
+      });
 
       await this.ormRepository.save(tool);
 

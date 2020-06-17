@@ -39,12 +39,6 @@ class CreateToolService {
       }
 
       const tagsList = allTags.map(tag => {
-        const tagList = tags.find(t => t.title === tag.title);
-
-        if (!tagList) {
-          throw new Error('Tag not found');
-        }
-
         return {
           tag_id: tag.id,
           tag_title: tag.title,
