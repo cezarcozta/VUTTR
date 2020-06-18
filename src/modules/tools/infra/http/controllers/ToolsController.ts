@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
+import { classToClass } from 'class-transformer';
 
 import CreateToolService from '@modules/tools/services/CreateToolService';
 import ListToolsService from '@modules/tools/services/ListToolsService';
@@ -19,7 +20,7 @@ export default class ToolsController {
         tags,
       });
 
-      return response.status(201).json(tool);
+      return response.status(201).json(classToClass(tool));
     } catch (error) {
       throw new Error(error.message);
     }
@@ -31,7 +32,7 @@ export default class ToolsController {
 
       const tools = await listTool.execute();
 
-      return response.json(tools);
+      return response.json(classToClass(tools));
     } catch (error) {
       throw new Error(error.message);
     }

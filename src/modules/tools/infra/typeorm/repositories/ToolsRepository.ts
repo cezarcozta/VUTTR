@@ -23,7 +23,7 @@ class ToolsRepository implements IToolsRepository {
         title,
         url,
         description,
-        tools_tags: tags,
+        tags,
       });
 
       await this.ormRepository.save(tool);

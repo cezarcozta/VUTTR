@@ -8,20 +8,17 @@ import {
   OneToMany,
 } from 'typeorm';
 
-import ToolsTags from '@modules/tools/infra/typeorm/entities/ToolsTags';
+import ToolsTags from '../../../../tools/infra/typeorm/entities/ToolsTags';
 
 @Entity('tags')
-class Tools {
+class Tags {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
   title: string;
 
-  @OneToMany(() => ToolsTags, tag => tag.tag, {
-    eager: true,
-    cascade: true,
-  })
+  @OneToMany(() => ToolsTags, tags => tags.tag)
   tools_tags: ToolsTags[];
 
   @CreateDateColumn()
@@ -30,4 +27,4 @@ class Tools {
   @UpdateDateColumn()
   updated_at: Date;
 }
-export default Tools;
+export default Tags;

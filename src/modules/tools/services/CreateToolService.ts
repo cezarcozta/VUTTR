@@ -5,6 +5,7 @@ import Tool from '../infra/typeorm/entities/Tools';
 import ITagsRepository from '../../tags/repositories/ITagsRepository';
 
 interface ITag {
+  id: string;
   title: string;
 }
 
@@ -44,7 +45,6 @@ class CreateToolService {
           tag_title: tag.title,
         };
       });
-
       const dataTool = {
         title,
         url,

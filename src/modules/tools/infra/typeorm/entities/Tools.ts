@@ -8,6 +8,7 @@ import {
   OneToMany,
 } from 'typeorm';
 
+import { Exclude } from 'class-transformer';
 import ToolsTags from './ToolsTags';
 
 @Entity('tools')
@@ -25,15 +26,17 @@ class Tools {
   description: string;
 
   @OneToMany(() => ToolsTags, tool => tool.tool, {
-    cascade: true,
     eager: true,
+    cascade: true,
   })
-  tools_tags: ToolsTags[];
+  tags: ToolsTags[];
 
   @CreateDateColumn()
+  @Exclude()
   created_at: Date;
 
   @UpdateDateColumn()
+  @Exclude()
   updated_at: Date;
 }
 export default Tools;

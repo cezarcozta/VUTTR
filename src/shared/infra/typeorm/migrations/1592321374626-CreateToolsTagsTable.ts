@@ -28,6 +28,10 @@ export default class CreateToolsTagsTable1592321374626
             type: 'uuid',
           },
           {
+            name: 'tag_title',
+            type: 'varchar',
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',
@@ -64,12 +68,27 @@ export default class CreateToolsTagsTable1592321374626
         onUpdate: 'CASCADE',
       }),
     );
+
+    await queryRunner.createForeignKey(
+      'tools_tags',
+      new TableForeignKey({
+        name: 'tags_titles',
+        columnNames: ['tag_title'],
+        referencedColumnNames: ['title'],
+        referencedTableName: 'tags',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      }),
+    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropForeignKey('tools_tags', 'tags_titles');
+
     await queryRunner.dropForeignKey('tools_tags', 'tags');
+
     await queryRunner.dropForeignKey('tools_tags', 'tools');
 
-    await queryRunner.dropTable('ordersProducts');
+    await queryRunner.dropTable('tools_tags');
   }
 }
