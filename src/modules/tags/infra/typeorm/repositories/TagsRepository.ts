@@ -62,6 +62,16 @@ class TagsRepository implements ITagsRepository {
     }
   }
 
+  public async findTagByID(id: string): Promise<Tag | undefined> {
+    try {
+      const tag = await this.ormRepository.findOne({ where: { id } });
+
+      return tag;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
   public async findAllTagsByTitle(tags: IFindTags[]): Promise<Tag[]> {
     const tagsList = await this.ormRepository.find({ title: In(tags) });
 

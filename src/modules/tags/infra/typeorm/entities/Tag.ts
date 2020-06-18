@@ -18,7 +18,7 @@ class Tags {
   @Column()
   title: string;
 
-  @OneToMany(() => ToolsTags, tags => tags.tag)
+  @OneToMany(() => ToolsTags, tags => tags.tag, { cascade: true })
   tools_tags: ToolsTags[];
 
   @CreateDateColumn()
