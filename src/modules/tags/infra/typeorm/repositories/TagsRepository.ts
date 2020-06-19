@@ -72,6 +72,14 @@ class TagsRepository implements ITagsRepository {
     }
   }
 
+  public async updateTag(tag: Tag): Promise<Tag> {
+    try {
+      return this.ormRepository.save(tag);
+    } catch (error) {
+      throw new Error('Could not update the tag, try again.');
+    }
+  }
+
   public async findAllTagsByTitle(tags: IFindTags[]): Promise<Tag[]> {
     const tagsList = await this.ormRepository.find({ title: In(tags) });
 

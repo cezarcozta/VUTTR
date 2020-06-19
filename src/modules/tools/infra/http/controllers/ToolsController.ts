@@ -4,6 +4,7 @@ import { classToClass } from 'class-transformer';
 
 import CreateToolService from '@modules/tools/services/CreateToolService';
 import ListToolsService from '@modules/tools/services/ListToolsService';
+import UpdateToolService from '@modules/tools/services/UpdateToolService';
 import RemoveToolService from '@modules/tools/services/RemoveToolService';
 
 export default class ToolsController {
@@ -33,6 +34,30 @@ export default class ToolsController {
       const tools = await listTool.execute();
 
       return response.json(classToClass(tools));
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  public async update(request: Request, response: Response): Promise<Response> {
+    try {
+      const { id } = request.params;
+
+      const { title, url, description, tags } = request.body;
+
+      const tool = {
+        id,
+        title,
+        url,
+        description,
+        tags,
+      };
+
+      const updateTool = container.resolve(UpdateToolService);
+
+      await updateTool.execute(tool);
+
+      return response.status(204).json(classToClass(tool));
     } catch (error) {
       throw new Error(error.message);
     }

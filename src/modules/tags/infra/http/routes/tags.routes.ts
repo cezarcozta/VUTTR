@@ -9,6 +9,8 @@ tagsRouter.post('/', tagsController.create);
 
 tagsRouter.get('/', tagsController.index);
 
+tagsRouter.put('/:id', tagsController.update);
+
 tagsRouter.delete('/:id', tagsController.remove);
 
 export default tagsRouter;

@@ -2,6 +2,7 @@ import { getRepository, Repository } from 'typeorm';
 
 import IToolsRepository from '../../../repositories/IToolsRepository';
 import ICreateToolDTO from '../../../dtos/ICreateToolDTO';
+import IUpdateToolDTO from '../../../dtos/IUpdateToolDTO';
 
 import Tool from '../entities/Tools';
 
@@ -53,6 +54,26 @@ class ToolsRepository implements IToolsRepository {
       }
 
       await this.ormRepository.remove(tool);
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  public async updateTool({
+    title,
+    url,
+    description,
+    tags,
+  }: IUpdateToolDTO): Promise<Tool> {
+    try {
+      const updatedTool = this.ormRepository.save({
+        title,
+        url,
+        description,
+        tags,
+      });
+
+      return updatedTool;
     } catch (error) {
       throw new Error(error.message);
     }
