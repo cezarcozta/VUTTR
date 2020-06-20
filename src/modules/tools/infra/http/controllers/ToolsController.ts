@@ -52,7 +52,7 @@ export default class ToolsController {
         description,
         tags,
       };
-
+      console.log('tagsIsomnia', tags);
       const updateTool = container.resolve(UpdateToolService);
 
       await updateTool.execute(tool);

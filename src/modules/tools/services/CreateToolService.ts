@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { injectable, inject } from 'tsyringe';
 
 import IToolsRepository from '../repositories/IToolsRepository';
@@ -7,6 +8,9 @@ import ITagsRepository from '../../tags/repositories/ITagsRepository';
 interface ITag {
   id: string;
   title: string;
+  tag_title: string;
+  tag_id: string;
+  tool_id: string;
 }
 
 interface IRequest {

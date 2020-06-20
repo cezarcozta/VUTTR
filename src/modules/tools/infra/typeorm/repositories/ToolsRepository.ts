@@ -59,21 +59,57 @@ class ToolsRepository implements IToolsRepository {
     }
   }
 
-  public async updateTool({
-    title,
-    url,
-    description,
-    tags,
-  }: IUpdateToolDTO): Promise<Tool> {
+  public async updateTool(tool: IUpdateToolDTO): Promise<Tool> {
     try {
-      const updatedTool = this.ormRepository.save({
-        title,
-        url,
-        description,
-        tags,
-      });
+      return this.ormRepository.save(tool);
 
-      return updatedTool;
+      // console.log('futureR', toolsTags);
+      // const actualRelations = await this.ormRepository
+      //   .createQueryBuilder()
+      //   .relation(Tool, 'tags')
+      //   .of(tool)
+      //   .loadMany();
+
+      // if (!actualRelations) {
+      //   throw new Error('No Actual Relations');
+      // }
+
+      // console.log('actualR', actualRelations);
+
+      // const add = await this.ormRepository
+      //   .createQueryBuilder()
+      //   .relation(Tool, 'tags')
+      //   .of(tool)
+      //   .add(tool.tags);
+
+      // console.log('add', add);
+
+      // await this.ormRepository
+      //   .createQueryBuilder()
+      //   .relation(Tool, 'tags')
+      //   .of(Tool)
+      //   .remove(actualRelations);
+
+      // await this.ormRepository
+      //   .createQueryBuilder()
+      //   .update()
+      //   .set({
+      //     title,
+      //     url,
+      //     description,
+      //     tags,
+      //   })
+      //   .where('id = :id', { id })
+      //   .execute();
+      // await this.ormRepository.save(tool);
+
+      // const updatedTool = await this.ormRepository.findOne(tool);
+
+      // if (!updatedTool) {
+      //   throw new Error('Deu ruim');
+      // }
+
+      // return updatedTool;
     } catch (error) {
       throw new Error(error.message);
     }

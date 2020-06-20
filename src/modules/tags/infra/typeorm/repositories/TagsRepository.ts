@@ -7,6 +7,7 @@ import Tag from '@modules/tags/infra/typeorm/entities/Tag';
 
 interface IFindTags {
   title: string;
+  id: string;
 }
 
 class TagsRepository implements ITagsRepository {
@@ -62,6 +63,14 @@ class TagsRepository implements ITagsRepository {
     }
   }
 
+  public async findAllTagsByID(tags: IFindTags[]): Promise<Tag[]> {
+    const tagsID = tags.map(tag => tag.id);
+
+    const tagsList = await this.ormRepository.find({ id: In(tagsID) });
+
+    return tagsList;
+  }
+
   public async findTagByID(id: string): Promise<Tag | undefined> {
     try {
       const tag = await this.ormRepository.findOne({ where: { id } });
@@ -76,7 +85,7 @@ class TagsRepository implements ITagsRepository {
     try {
       return this.ormRepository.save(tag);
     } catch (error) {
-      throw new Error('Could not update the tag, try again.');
+      throw new Error(error.message);
     }
   }
 

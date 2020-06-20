@@ -5,11 +5,13 @@ import { inject, injectable } from 'tsyringe';
 import IToolRepository from '../repositories/IToolsRepository';
 import Tool from '../infra/typeorm/entities/Tools';
 
-import ITagsRepository from '../../tags/repositories/ITagsRepository';
 import IToolsTagsRepository from '../repositories/IToolsTagsRepository';
+import ITagsRepository from '../../tags/repositories/ITagsRepository';
+// import ToolsTags from '../infra/typeorm/entities/ToolsTags';
 
-interface ITag {
-  title: string;
+interface IToolsTags {
+  tool_id: string;
+  tag_id: string;
 }
 
 interface IRequest {
@@ -17,7 +19,7 @@ interface IRequest {
   title: string;
   url: string;
   description: string;
-  tags: ITag[];
+  tags: IToolsTags[];
 }
 
 @injectable()
@@ -41,41 +43,21 @@ class UpdateToolService {
     tags,
   }: IRequest): Promise<Tool> {
     try {
-      //----------------------------------------------------
-      // ACHAR CORRESPONDENCIA NA TABELA TOOLSTAGS
-      // DELETAR A CORRESPONDENCIA
-      // CRIAR UMA NOVA
-      // tool.tags = tagsList;
-      // ----------------------------------------------------S
+      const updateTool = await this.toolsRepository.findToolByID(id);
 
-      const tool = await this.toolsRepository.findToolByID(id);
-      const relation = await this.toolsTagsRepository.findByToolID(id);
-
-      if (!tool) {
-        throw new Error('Tool not found!');
+      if (!updateTool) {
+        throw new Error('Tool nod found');
       }
 
-      if (!relation) {
-        throw new Error('No Relation');
+      if (tags) {
+        // se tem tag para mudar fazer trocar essa porra que eu nao consigo
       }
 
-      const allTags = await this.tagsRepository.findAllTagsByTitle(tags);
+      updateTool.title = title;
+      updateTool.url = url;
+      updateTool.description = description;
 
-      // console.log(allTags);
-
-      const tagsList = allTags.map(tag => {
-        return {
-          tag_id: tag.id,
-          tag_title: tag.title,
-          tool_tags: tag.tools_tags,
-        };
-      });
-
-      tool.title = title;
-      tool.url = url;
-      tool.description = description;
-
-      const updatedTool = await this.toolsRepository.updateTool(tool);
+      const updatedTool = await this.toolsRepository.updateTool(updateTool);
 
       return updatedTool;
     } catch (error) {

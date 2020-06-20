@@ -1,8 +1,10 @@
+/* eslint-disable camelcase */
 import Tag from '../infra/typeorm/entities/Tag';
 import ICreateTagDTO from '../dtos/ICreateTagDTO';
 
 interface IFindTags {
   title: string;
+  id: string;
 }
 
 export default interface ITagsRepository {
@@ -13,6 +15,8 @@ export default interface ITagsRepository {
   findAllTags(): Promise<Tag[]>;
 
   findAllTagsByTitle(tags: IFindTags[]): Promise<Tag[]>;
+
+  findAllTagsByID(ids: IFindTags[]): Promise<Tag[]>;
 
   findTagByID(id: string): Promise<Tag | undefined>;
 
