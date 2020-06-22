@@ -43,16 +43,17 @@ export default class ToolsController {
     try {
       const { id } = request.params;
 
-      const { title, url, description, tags } = request.body;
+      const { title, url, description, tags, ...rest } = request.body;
 
       const tool = {
         id,
         title,
         url,
         description,
+        ...rest,
         tags,
       };
-      console.log('tagsIsomnia', tags);
+      console.log('Controller enviando: ', tool);
       const updateTool = container.resolve(UpdateToolService);
 
       await updateTool.execute(tool);

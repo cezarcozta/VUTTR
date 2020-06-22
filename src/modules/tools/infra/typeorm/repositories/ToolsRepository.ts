@@ -5,6 +5,7 @@ import ICreateToolDTO from '../../../dtos/ICreateToolDTO';
 import IUpdateToolDTO from '../../../dtos/IUpdateToolDTO';
 
 import Tool from '../entities/Tools';
+import ToolsTags from '../entities/ToolsTags';
 
 class ToolsRepository implements IToolsRepository {
   private ormRepository: Repository<Tool>;
@@ -59,57 +60,23 @@ class ToolsRepository implements IToolsRepository {
     }
   }
 
+  public async findAllRelationByTool(tool: Tool): Promise<ToolsTags[]> {
+    const actualRelations = await this.ormRepository
+      .createQueryBuilder()
+      .relation(Tool, 'tags')
+      .of(tool)
+      .loadMany();
+
+    if (!actualRelations) {
+      throw new Error('No Actual Relations');
+    }
+    return actualRelations;
+  }
+
   public async updateTool(tool: IUpdateToolDTO): Promise<Tool> {
     try {
-      return this.ormRepository.save(tool);
-
-      // console.log('futureR', toolsTags);
-      // const actualRelations = await this.ormRepository
-      //   .createQueryBuilder()
-      //   .relation(Tool, 'tags')
-      //   .of(tool)
-      //   .loadMany();
-
-      // if (!actualRelations) {
-      //   throw new Error('No Actual Relations');
-      // }
-
-      // console.log('actualR', actualRelations);
-
-      // const add = await this.ormRepository
-      //   .createQueryBuilder()
-      //   .relation(Tool, 'tags')
-      //   .of(tool)
-      //   .add(tool.tags);
-
-      // console.log('add', add);
-
-      // await this.ormRepository
-      //   .createQueryBuilder()
-      //   .relation(Tool, 'tags')
-      //   .of(Tool)
-      //   .remove(actualRelations);
-
-      // await this.ormRepository
-      //   .createQueryBuilder()
-      //   .update()
-      //   .set({
-      //     title,
-      //     url,
-      //     description,
-      //     tags,
-      //   })
-      //   .where('id = :id', { id })
-      //   .execute();
-      // await this.ormRepository.save(tool);
-
-      // const updatedTool = await this.ormRepository.findOne(tool);
-
-      // if (!updatedTool) {
-      //   throw new Error('Deu ruim');
-      // }
-
-      // return updatedTool;
+      const updateTool = await this.ormRepository.save(tool);
+      return updateTool;
     } catch (error) {
       throw new Error(error.message);
     }
