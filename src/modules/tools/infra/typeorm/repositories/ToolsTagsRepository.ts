@@ -12,29 +12,21 @@ class ToolsTagsRepository implements IToolsTagsRepository {
     this.ormRepository = getRepository(ToolsTags);
   }
 
-  public async updateRelations(
-    oldSet: ToolsTags[],
-    newSet: ToolsTags[],
-  ): Promise<void> {
+  public async findToolsIDByTag(
+    tag_title: string,
+  ): Promise<ToolsTags[] | undefined> {
     try {
-      console.log('newSet: ', newSet);
-      const newRelation = this.ormRepository.create(newSet);
-      await this.ormRepository.save(newRelation);
-      await this.ormRepository.remove(oldSet);
+      const toolByTag = this.ormRepository.find({
+        where: {
+          tag_title,
+        },
+      });
 
-      // console.log(
-      //   'query add',
-      //   await this.ormRepository
-      //     .createQueryBuilder()
-      //     .relation(ToolsTags, 'tag')
-      //     .of(ToolsTags)
-      //     .loadMany(),
-      // );
-      // await this.ormRepository
-      //   .createQueryBuilder()
-      //   .relation(ToolsTags, 'tool')
-      //   .of(ToolsTags)
-      //   .set(null);
+      if (!toolByTag) {
+        return this.ormRepository.find();
+      }
+
+      return toolByTag;
     } catch (error) {
       throw new Error(error.message);
     }

@@ -1,9 +1,11 @@
+/* eslint-disable camelcase */
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 import { classToClass } from 'class-transformer';
 
 import CreateToolService from '@modules/tools/services/CreateToolService';
 import ListToolsService from '@modules/tools/services/ListToolsService';
+import ListAllToolsService from '@modules/tools/services/ListAllToolsService';
 import UpdateToolService from '@modules/tools/services/UpdateToolService';
 import RemoveToolService from '@modules/tools/services/RemoveToolService';
 
@@ -29,9 +31,23 @@ export default class ToolsController {
 
   public async index(request: Request, response: Response): Promise<Response> {
     try {
-      const listTool = container.resolve(ListToolsService);
+      const { tags } = request.query;
 
-      const tools = await listTool.execute();
+      if (tags === undefined) {
+        try {
+          const listAllTools = container.resolve(ListAllToolsService);
+
+          const tools = await listAllTools.execute();
+
+          return response.json(classToClass(tools));
+        } catch (error) {
+          throw new Error(error.message);
+        }
+      }
+
+      const listToolByTag = container.resolve(ListToolsService);
+
+      const tools = await listToolByTag.execute(String(tags));
 
       return response.json(classToClass(tools));
     } catch (error) {
@@ -53,7 +69,7 @@ export default class ToolsController {
         ...rest,
         tags,
       };
-      console.log('Controller enviando: ', tool);
+
       const updateTool = container.resolve(UpdateToolService);
 
       await updateTool.execute(tool);

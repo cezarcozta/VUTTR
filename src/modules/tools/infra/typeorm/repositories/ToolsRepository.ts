@@ -1,11 +1,11 @@
-import { getRepository, Repository } from 'typeorm';
+/* eslint-disable camelcase */
+import { getRepository, Repository, In } from 'typeorm';
 
 import IToolsRepository from '../../../repositories/IToolsRepository';
 import ICreateToolDTO from '../../../dtos/ICreateToolDTO';
 import IUpdateToolDTO from '../../../dtos/IUpdateToolDTO';
 
 import Tool from '../entities/Tools';
-import ToolsTags from '../entities/ToolsTags';
 
 class ToolsRepository implements IToolsRepository {
   private ormRepository: Repository<Tool>;
@@ -36,16 +36,6 @@ class ToolsRepository implements IToolsRepository {
     }
   }
 
-  public async findAllTools(): Promise<Tool[]> {
-    try {
-      const tools = await this.ormRepository.find();
-
-      return tools;
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  }
-
   public async removeTool(id: string): Promise<void> {
     try {
       const tool = await this.ormRepository.findOne(id);
@@ -58,19 +48,6 @@ class ToolsRepository implements IToolsRepository {
     } catch (error) {
       throw new Error(error.message);
     }
-  }
-
-  public async findAllRelationByTool(tool: Tool): Promise<ToolsTags[]> {
-    const actualRelations = await this.ormRepository
-      .createQueryBuilder()
-      .relation(Tool, 'tags')
-      .of(tool)
-      .loadMany();
-
-    if (!actualRelations) {
-      throw new Error('No Actual Relations');
-    }
-    return actualRelations;
   }
 
   public async updateTool(tool: IUpdateToolDTO): Promise<Tool> {
@@ -94,6 +71,24 @@ class ToolsRepository implements IToolsRepository {
     } catch (error) {
       throw new Error(error.message);
     }
+  }
+
+  public async findAllToolsByIDs(ids: string[]): Promise<Tool[]> {
+    const allTools = await this.ormRepository.find({
+      where: {
+        id: In(ids),
+      },
+    });
+
+    if (!allTools) {
+      return this.ormRepository.find({});
+    }
+
+    return allTools;
+  }
+
+  public async findAll(): Promise<Tool[]> {
+    return this.ormRepository.find();
   }
 }
 

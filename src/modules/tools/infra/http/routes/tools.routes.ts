@@ -11,6 +11,8 @@ toolsRouter.get('/', toolsController.index);
 
 toolsRouter.put('/:id', toolsController.update);
 
+toolsRouter.patch('/:id');
+
 toolsRouter.delete('/:id', toolsController.remove);
 
 export default toolsRouter;
