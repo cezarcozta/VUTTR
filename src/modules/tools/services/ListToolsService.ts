@@ -17,7 +17,7 @@ class ListToolsService {
 
   public async execute(tag_title: string): Promise<Tool[]> {
     try {
-      const toolsByTagTitle = await this.toolsTagsRepository.findToolsIDByTag(
+      const toolsByTagTitle = await this.toolsTagsRepository.findToolsIDByTags(
         tag_title,
       );
 

@@ -5,6 +5,10 @@ import IToolsTagsRepository from '../../../repositories/IToolsTagsRepository';
 
 import ToolsTags from '../entities/ToolsTags';
 
+interface IFindTags {
+  tag_title: string;
+}
+
 class ToolsTagsRepository implements IToolsTagsRepository {
   private ormRepository: Repository<ToolsTags>;
 
@@ -12,7 +16,7 @@ class ToolsTagsRepository implements IToolsTagsRepository {
     this.ormRepository = getRepository(ToolsTags);
   }
 
-  public async findToolsIDByTag(
+  public async findToolsIDByTags(
     tag_title: string,
   ): Promise<ToolsTags[] | undefined> {
     try {
@@ -21,10 +25,6 @@ class ToolsTagsRepository implements IToolsTagsRepository {
           tag_title,
         },
       });
-
-      if (!toolByTag) {
-        return this.ormRepository.find();
-      }
 
       return toolByTag;
     } catch (error) {

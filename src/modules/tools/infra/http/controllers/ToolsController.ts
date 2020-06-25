@@ -45,9 +45,11 @@ export default class ToolsController {
         }
       }
 
+      const parsedTag = String(tags);
+
       const listToolByTag = container.resolve(ListToolsService);
 
-      const tools = await listToolByTag.execute(String(tags));
+      const tools = await listToolByTag.execute(parsedTag);
 
       return response.json(classToClass(tools));
     } catch (error) {
