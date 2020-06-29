@@ -32,9 +32,9 @@ git clone [https://github.com/cezarcozta/VUTTR.git]
 - Acesse a pasta clonada e rode "yarn"
 
 `
-cd VUTTR
+  cd VUTTR
 
-yarn
+  yarn
 `
 
 - Criar postgres database:
