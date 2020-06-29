@@ -27,24 +27,24 @@ GET Tag<br>
     http://localhost:3000/tags<br>
   - RESPONSE:<br>
     <code>[<br>
-      {<br>
-        "id": "d219ec44-2d8c-42b1-8671-e8ccc64671e6",<br>
-        "title": "colaboration",<br>
-        "created_at": "2020-06-19T00:17:23.475Z",<br>
-        "updated_at": "2020-06-19T00:17:23.475Z"<br>
-      },<br>
-      {<br>
-        "id": "c08935d8-36a1-4a33-bfbe-01706789f5de",<br>
-        "title": "coding",<br>
-        "created_at": "2020-06-19T00:41:54.151Z",<br>
-        "updated_at": "2020-06-19T00:41:54.151Z"<br>
-      },<br>
-      {<br>
-        "id": "bbe7ee9a-c1bd-4de8-82fb-5d2fba504efb",<br>
-        "title": "design",<br>
-        "created_at": "2020-06-20T19:18:35.070Z",<br>
-        "updated_at": "2020-06-20T19:18:35.070Z"<br>
-      },<br>
+     {<br>
+       "id": "d219ec44-2d8c-42b1-8671-e8ccc64671e6",<br>
+       "title": "colaboration",<br>
+       "created_at": "2020-06-19T00:17:23.475Z",<br>
+       "updated_at": "2020-06-19T00:17:23.475Z"<br>
+     },<br>
+     {<br>
+      "id": "c08935d8-36a1-4a33-bfbe-01706789f5de",<br>
+      "title": "coding",<br>
+      "created_at": "2020-06-19T00:41:54.151Z",<br>
+      "updated_at": "2020-06-19T00:41:54.151Z"<br>
+     },<br>
+     {<br>
+      "id": "bbe7ee9a-c1bd-4de8-82fb-5d2fba504efb",<br>
+      "title": "design",<br>
+      "created_at": "2020-06-20T19:18:35.070Z",<br>
+      "updated_at": "2020-06-20T19:18:35.070Z"<br>
+     },<br>
     ]</code><br>
 <br>
 POST Tag<br>
