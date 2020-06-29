@@ -25,9 +25,8 @@
 GET Tag<br>
   - REQUEST:<br>
     http://localhost:3000/tags<br>
-<br>
   - RESPONSE:<br>
-    [<br>
+    <code>[<br>
       {<br>
         "id": "d219ec44-2d8c-42b1-8671-e8ccc64671e6",<br>
         "title": "colaboration",<br>
@@ -46,7 +45,7 @@ GET Tag<br>
         "created_at": "2020-06-20T19:18:35.070Z",<br>
         "updated_at": "2020-06-20T19:18:35.070Z"<br>
       },<br>
-    ]<br>
+    ]</code><br>
 <br>
 POST Tag<br>
   - REQUEST:<br>
