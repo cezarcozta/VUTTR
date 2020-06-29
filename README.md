@@ -5,21 +5,26 @@
 
 ## API Rest
 
+>The Application is a simple repository to manager tool and their name, links, descriptions and tags. (bossabox[https://app.bossabox.com/])
+
 ### Tech and Tools
 
-- **Language:** TS
+- **Language:** Js + Typescript
 - **Back-end:** Nodejs + Express
 - **Database:** Postgres + TypeORM
-- ESLint + Prettier
-- JSONWebToken
-- Tsyringe
-- Class Transformer
-- BCryptJS
-- Celebrate
-- VSCode
-- Yarn
+- **Code Style:** ESLint + Prettier
 - **Tests:** Jest
 - **Operational System:** Linux
+- jsonWebToken
+- tsyringe
+- class Transformer
+- bcryptjs
+- celebrate
+- vsCode
+- cors
+- uuidv4
+- ts-node-dev
+- yarn
 
 ## Getting Started
 
