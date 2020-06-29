@@ -31,11 +31,13 @@
 git clone [https://github.com/cezarcozta/VUTTR.git]
 `
 
-- Access cloned folder and run "yarn"
+- Access cloned folder
 
 `
 cd VUTTR
 `
+
+- Run "yarn"
 
 `
 yarn
@@ -44,6 +46,14 @@ yarn
 - Create postgres database:
   - Database name: vuttr
   - owner: postgres
+
+- Run Database migrations
+
+`
+yarn typeorm migration:run
+`
+
+- Run development server
 
 `
 yarn dev:server
