@@ -21,25 +21,27 @@
 
 ## Getting Started
 
->Pré-requisitos: yarn package manager.
+>precondition: yarn package manager.
 
-- Clone Repositório.
+- Clone.
 
 `
 git clone [https://github.com/cezarcozta/VUTTR.git]
 `
 
-- Acesse a pasta clonada e rode "yarn"
+- Access cloned folder and run "yarn"
 
 `
-  cd VUTTR
-
-  yarn
+cd VUTTR
 `
 
-- Criar postgres database:
-    Database name: vuttr
-    owner: postgres
+`
+yarn
+`
+
+- Create postgres database:
+  - Database name: vuttr
+  - owner: postgres
 
 `
 yarn dev:server
