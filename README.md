@@ -3,19 +3,20 @@
 
 ## API Rest
 
-  **Tech and Tools**
-    - JS + TS
-    - Nodejs + Express
-    - Postgres + TypeORM
-    - ESLint + Prettier
-    - JSONWebToken
-    - Tsyringe
-    - Class Transformer
-    - BCryptJS
-    - Celebrate
-    - Jest
-    - VSCode
-    - Yarn
+### Tech and Tools
+
+- JS + TS
+- Nodejs + Express
+- Postgres + TypeORM
+- ESLint + Prettier
+- JSONWebToken
+- Tsyringe
+- Class Transformer
+- BCryptJS
+- Celebrate
+- Jest
+- VSCode
+- Yarn
 
 ## Get Start
 
@@ -232,4 +233,3 @@
 
 - RESPONSE:
     204 No Content
-
