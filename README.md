@@ -1,19 +1,19 @@
 # VUTTR
   - bossabox back-end challange
 ## API Rest
-  **Tech and Tools**
-    - JS + TS
-    - Nodejs + Express
-    - Postgres + TypeORM
-    - ESLint + Prettier
-    - JSONWebToken
-    - Tsyringe
-    - Class Transformer
-    - BCryptJS
-    - Celebrate
-    - Jest
-    - VSCode
-    - Yarn
+  **Tech and Tools**<br>
+    - JS + TS<br>
+    - Nodejs + Express<br>
+    - Postgres + TypeORM<br>
+    - ESLint + Prettier<br>
+    - JSONWebToken<br>
+    - Tsyringe<br>
+    - Class Transformer<br>
+    - BCryptJS<br>
+    - Celebrate<br>
+    - Jest<br>
+    - VSCode<br>
+    - Yarn<br>
 ## Get Start
   - clone repo: git clone https://github.com/cezarcozta/VUTTR.git
   - create postgres database:
@@ -22,173 +22,173 @@
   - yarn
   - yarn dev:server
 ----------------------------------------------------------------------------
-GET Tag
-  - REQUEST:
-    http://localhost:3000/tags
-
-  - RESPONSE:
-    [
-      {
-        "id": "d219ec44-2d8c-42b1-8671-e8ccc64671e6",
-        "title": "colaboration",
-        "created_at": "2020-06-19T00:17:23.475Z",
-        "updated_at": "2020-06-19T00:17:23.475Z"
-      },
-      {
-        "id": "c08935d8-36a1-4a33-bfbe-01706789f5de",
-        "title": "coding",
-        "created_at": "2020-06-19T00:41:54.151Z",
-        "updated_at": "2020-06-19T00:41:54.151Z"
-      },
-      {
-        "id": "bbe7ee9a-c1bd-4de8-82fb-5d2fba504efb",
-        "title": "design",
-        "created_at": "2020-06-20T19:18:35.070Z",
-        "updated_at": "2020-06-20T19:18:35.070Z"
-      },
-    ]
-
-POST Tag
-  - REQUEST:
-    http://localhost:3000/tags
-    {
-      "ittle": "design"
-    }
-
-  - RESPONSE:
-    {
-      "title": "design",
-      "id": "bbe7ee9a-c1bd-4de8-82fb-5d2fba504efb",
-      "created_at": "2020-06-20T19:18:35.070Z",
-      "updated_at": "2020-06-20T19:18:35.070Z"
-    }
-
-PUT Tag
-  - REQUEST:
-    http://localhost:3000/tags/UUID
-    {
-      title: "UpdateTag",
-    }
-
-  - RESPONSE:
-    204 No Content
-
-DELETE TAG
-  - REQUEST:
-    http://localhost:3000/tags/UUID
-
-  - RESPONSE:
-    204 No Content
+GET Tag<br>
+  - REQUEST:<br>
+    http://localhost:3000/tags<br>
+<br>
+  - RESPONSE:<br>
+    [<br>
+      {<br>
+        "id": "d219ec44-2d8c-42b1-8671-e8ccc64671e6",<br>
+        "title": "colaboration",<br>
+        "created_at": "2020-06-19T00:17:23.475Z",<br>
+        "updated_at": "2020-06-19T00:17:23.475Z"<br>
+      },<br>
+      {<br>
+        "id": "c08935d8-36a1-4a33-bfbe-01706789f5de",<br>
+        "title": "coding",<br>
+        "created_at": "2020-06-19T00:41:54.151Z",<br>
+        "updated_at": "2020-06-19T00:41:54.151Z"<br>
+      },<br>
+      {<br>
+        "id": "bbe7ee9a-c1bd-4de8-82fb-5d2fba504efb",<br>
+        "title": "design",<br>
+        "created_at": "2020-06-20T19:18:35.070Z",<br>
+        "updated_at": "2020-06-20T19:18:35.070Z"<br>
+      },<br>
+    ]<br>
+<br>
+POST Tag<br>
+  - REQUEST:<br>
+    http://localhost:3000/tags<br>
+    {<br>
+      "ittle": "design"<br>
+    }<br>
+<br>
+  - RESPONSE:<br>
+    {<br>
+      "title": "design",<br>
+      "id": "bbe7ee9a-c1bd-4de8-82fb-5d2fba504efb",<br>
+      "created_at": "2020-06-20T19:18:35.070Z",<br>
+      "updated_at": "2020-06-20T19:18:35.070Z"<br>
+    }<br>
+<br>
+PUT Tag<br>
+  - REQUEST:<br>
+    http://localhost:3000/tags/UUID<br>
+    {<br>
+      title: "UpdateTag",<br>
+    }<br>
+<br>
+  - RESPONSE:<br>
+    204 No Content<br>
+<br>
+DELETE TAG<br>
+  - REQUEST:<br>
+    http://localhost:3000/tags/UUID<br>
+<br>
+  - RESPONSE:<br>
+    204 No Content<br>
 
 ------------------------------------------------------------------------------
-GET Tools
-  - REQUEST:
-    http://localhost:3000/tools
-
-  - RESPONSE:
-    [
-      {
-        "id": "9f947937-4459-441a-a0ae-a37905b15879",
-        "title": "yarn10000",
-        "url": "www.y.COM",
-        "description": "descr....",
-        "tags": [
-          {
-            "tag_title": "planejamento"
-          }
-        ]
-      },
-      {
-        "id": "a842b9da-954f-42c4-b1df-b93664936e14",
-        "title": "TOOLX",
-        "url": "https://yarn.com",
-        "description": "Yarn is Huge",
-        "tags": [
-          {
-            "tag_title": "coding"
-          },
-          {
-            "tag_title": "planejamento"
-          }
-        ]
-      },
-      {
-        "id": "a322c565-9671-4ddc-8d5e-5e00e8ec0156",
-        "title": "yarn5",
-        "url": "www.YARN2.COM",
-        "description": "DESCR....",
-        "tags": [
-          {
-            "tag_title": "coding"
-          }
-        ]
-      },
-    ]
-
-GET Tools by TAG
-  - REQUEST:
-    http://localhost:3000/tools?tag="coding"
-
-  - RESPONSE:
-    [
-      {
-        "id": "a322c565-9671-4ddc-8d5e-5e00e8ec0156",
-        "title": "yarn5",
-        "url": "www.YARN2.COM",
-        "description": "DESCR....",
-        "tags": [
-          {
-            "tag_title": "coding"
-          }
-        ]
-      },
-    ]
-
-POST Tool
-  - REQUEST:
-    http://localhost:3000/tools
-    {
-      "title": "Tool",
-      "url": "http://tool.com",
-      "description: "tool description...",
-      "tags": [
-        "tag01",
-        "tag02",
-      ]
-    }
-
-  - RESPONSE:
-    {
-      "title": "Tool",
-      "url": "https://tool.com",
-      "description": "tool description...",
-      "tags": [
-        {
-          "tag_title": "tag01"
-        },
-        {
-          "tag_title": "tag02"
-        }
-      ],
-      "id": "a842b9da-954f-42c4-b1df-b93664936e14"
-    }
-**tags must exists before create tool**
-
-PUT Tool
-  - REQUEST:
-    http://localhost:3000/tools/UUID
-    {
-	    "title": "updatedToolTitle",
-	    "url": "updatedToolURL",
-	    "description": "update description...."
-    }
-
-  - RESPONSE:
-    204 No Content
-
-DELETE Tool
-  - REQUEST:
-    http://locahost:3000/tools/UUID
-  - RESPONSE:
-    204 No Content
+GET Tools<br>
+  - REQUEST:<br>
+    http://localhost:3000/tools<br>
+<br>
+  - RESPONSE:<br>
+    [<br>
+      {<br>
+        "id": "9f947937-4459-441a-a0ae-a37905b15879",<br>
+        "title": "yarn10000",<br>
+        "url": "www.y.COM",<br>
+        "description": "descr....",<br>
+        "tags": [<br>
+          {<br>
+            "tag_title": "planejamento"<br>
+          }<br>
+        ]<br>
+      },<br>
+      {<br>
+        "id": "a842b9da-954f-42c4-b1df-b93664936e14",<br>
+        "title": "TOOLX",<br>
+        "url": "https://yarn.com",<br>
+        "description": "Yarn is Huge",<br>
+        "tags": [<br>
+          {<br>
+            "tag_title": "coding"<br>
+          },<br>
+          {<br>
+            "tag_title": "planejamento"<br>
+          }<br>
+        ]<br>
+      },<br>
+      {<br>
+        "id": "a322c565-9671-4ddc-8d5e-5e00e8ec0156",<br>
+        "title": "yarn5",<br>
+        "url": "www.YARN2.COM",<br>
+        "description": "DESCR....",<br>
+        "tags": [<br>
+          {<br>
+            "tag_title": "coding"<br>
+          }<br>
+        ]<br>
+      },<br>
+    ]<br>
+<br>
+GET Tools by TAG<br>
+  - REQUEST:<br>
+    http://localhost:3000/tools?tags=coding<br>
+<br>
+  - RESPONSE:<br>
+    [<br>
+      {<br>
+        "id": "a322c565-9671-4ddc-8d5e-5e00e8ec0156",<br>
+        "title": "yarn5",<br>
+        "url": "www.YARN2.COM",<br>
+        "description": "DESCR....",<br>
+        "tags": [<br>
+          {<br>
+            "tag_title": "coding"<br>
+          }<br>
+        ]<br>
+      },<br>
+    ]<br>
+<br>
+POST Tool<br>
+  - REQUEST:<br>
+    http://localhost:3000/tools<br>
+    {<br>
+      "title": "Tool",<br>
+      "url": "http://tool.com",<br>
+      "description: "tool description...",<br>
+      "tags": [<br>
+        "tag01",<br>
+        "tag02",<br>
+      ]<br>
+    }<br>
+<br>
+  - RESPONSE:<br>
+    {<br>
+      "title": "Tool",<br>
+      "url": "https://tool.com",<br>
+      "description": "tool description...",<br>
+      "tags": [<br>
+        {<br>
+          "tag_title": "tag01"<br>
+        },<br>
+        {<br>
+          "tag_title": "tag02"<br>
+        }<br>
+      ],<br>
+      "id": "a842b9da-954f-42c4-b1df-b93664936e14"<br>
+    }<br>
+**tags must exists before create tool**<br>
+<br>
+PUT Tool<br>
+  - REQUEST:<br>
+    http://localhost:3000/tools/UUID<br>
+    {<br>
+	    "title": "updatedToolTitle",<br>
+	    "url": "updatedToolURL",<br>
+	    "description": "update description...."<br>
+    }<br>
+<br>
+  - RESPONSE:<br>
+    204 No Content<br>
+<br>
+DELETE Tool<br>
+  - REQUEST:<br>
+    http://locahost:3000/tools/UUID<br>
+  - RESPONSE:<br>
+    204 No Content<br>
 
