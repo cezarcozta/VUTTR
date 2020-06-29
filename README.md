@@ -5,29 +5,46 @@
 
 ### Tech and Tools
 
-- JS + TS
-- Nodejs + Express
-- Postgres + TypeORM
+- **Language:** TS
+- **Back-end:** Nodejs + Express
+- **Database:** Postgres + TypeORM
 - ESLint + Prettier
 - JSONWebToken
 - Tsyringe
 - Class Transformer
 - BCryptJS
 - Celebrate
-- Jest
 - VSCode
 - Yarn
+- **Tests:** Jest
+- **Operational System:** Linux
 
 ## Getting Started
-  >
-  > 'git clone [https://github.com/cezarcozta/VUTTR.git]'
-  > cd VUTTR
-  > yarn
-  > create postgres database:
-    > Database name: vuttr
-    > owner: postgres
-  > yarn dev:server
-  >
+
+>Pré-requisitos: yarn package manager.
+
+- Clone Repositório.
+
+`
+git clone [https://github.com/cezarcozta/VUTTR.git]
+`
+
+- Acesse a pasta clonada e rode "yarn"
+
+`
+cd VUTTR
+
+yarn
+`
+
+- Criar postgres database:
+    Database name: vuttr
+    owner: postgres
+
+`
+yarn dev:server
+`
+
 ----------------------------------------------------------------------------
 
 ### POST User
