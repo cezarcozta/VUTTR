@@ -18,9 +18,10 @@
 - VSCode
 - Yarn
 
-## Get Start
+## Getting Started
 
-  > clone repo: git clone https://github.com/cezarcozta/VUTTR.git
+  > clone repo:
+  'git clone [https://github.com/cezarcozta/VUTTR.git]'
   > create postgres database:
     > Database name: vuttr
     > owner: postgres
@@ -32,7 +33,8 @@
 ### GET Tag
 
 - REQUEST:
-  - http://localhost:3000/tags
+  - /tags
+
 - RESPONSE:
 
 ```json
@@ -61,7 +63,7 @@
 ### POST Tag
 
 - REQUEST:
-    http://localhost:3000/tags
+    /tags
 
   ```json
     {
@@ -83,7 +85,7 @@
 ### PUT Tag
 
 - REQUEST:
-    http://localhost:3000/tags/UUID
+   /tags/UUID
 
     ```json
     {
@@ -97,7 +99,7 @@
 ### DELETE TAG
 
 - REQUEST:
-    http://localhost:3000/tags/UUID
+    /tags/UUID
 
 - RESPONSE:
     204 No Content
@@ -105,7 +107,7 @@
 ### GET Tools
 
 - REQUEST:
-    http://localhost:3000/tools
+    /tools
 
 - RESPONSE:
 
@@ -153,7 +155,7 @@
 ### GET Tools by TAG
 
 - REQUEST:
-    http://localhost:3000/tools?tags=coding
+    /tools?tags=coding
 
 - RESPONSE:
 
@@ -176,7 +178,7 @@
 ### POST Tool
 
 - REQUEST:
-    http://localhost:3000/tools
+    /tools
 
 ```json
     {
@@ -213,7 +215,7 @@
 ### PUT Tool
 
 - REQUEST:
-    http://localhost:3000/tools/UUID
+    /tools/UUID
 
  ```json
     {
@@ -229,7 +231,7 @@
 ### DELETE Tool
 
 - REQUEST:
-    http://locahost:3000/tools/UUID
+    /tools/UUID
 
 - RESPONSE:
     204 No Content
