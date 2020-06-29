@@ -51,7 +51,7 @@ POST Tag<br>
   - REQUEST:<br>
     http://localhost:3000/tags<br>
     {<br>
-      "ittle": "design"<br>
+     "tittle": "design"<br>
     }<br>
 <br>
   - RESPONSE:<br>
