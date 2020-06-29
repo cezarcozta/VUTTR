@@ -49,6 +49,9 @@ yarn dev:server
 
 ----------------------------------------------------------------------------
 
+>You must create a user then you must create a session
+>loggin with previous user created credentials then you can send requests
+
 ### POST User
 
 - REQUEST:
