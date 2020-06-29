@@ -17,8 +17,8 @@
 ## Get Start
   - clone repo: git clone https://github.com/cezarcozta/VUTTR.git
   - create postgres database:
-    - Database name: vuttr,
-    - owner: postgres,
+    - Database name: vuttr
+    - owner: postgres
   - yarn
   - yarn dev:server
 ----------------------------------------------------------------------------
