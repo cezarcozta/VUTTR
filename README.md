@@ -20,14 +20,12 @@
 
 ## Getting Started
   >
-  > clone repo:
-  >
-  'git clone [https://github.com/cezarcozta/VUTTR.git]'
-  >
+  > 'git clone [https://github.com/cezarcozta/VUTTR.git]'
+  > cd VUTTR
+  > yarn
   > create postgres database:
     > Database name: vuttr
     > owner: postgres
-  > yarn
   > yarn dev:server
   >
 ----------------------------------------------------------------------------
@@ -117,7 +115,7 @@
 ### POST Tag
 
 - REQUEST:
-    /tags
+  - /tags
 
   ```json
     {
@@ -139,9 +137,9 @@
 ### PUT Tag
 
 - REQUEST:
-   /tags/UUID
+  - /tags/UUID
 
-    ```json
+  ```json
     {
       "title": "UpdateTag",
     }
@@ -161,7 +159,7 @@
 ### GET Tools
 
 - REQUEST:
-    /tools
+  - /tools
 
 - RESPONSE:
 
@@ -209,7 +207,7 @@
 ### GET Tools by TAG
 
 - REQUEST:
-    /tools?tags=coding
+  - /tools?tags=coding
 
 - RESPONSE:
 
@@ -232,7 +230,7 @@
 ### POST Tool
 
 - REQUEST:
-    /tools
+    /tools **tags must exists before create tool**
 
 ```json
     {
@@ -247,7 +245,6 @@
 ```
 
 - RESPONSE:
-**tags must exists before create tool**
 
 ```json
     {
@@ -269,7 +266,7 @@
 ### PUT Tool
 
 - REQUEST:
-    /tools/UUID
+  - /tools/UUID
 
  ```json
     {
@@ -285,7 +282,7 @@
 ### DELETE Tool
 
 - REQUEST:
-    /tools/UUID
+  - /tools/UUID
 
 - RESPONSE:
     204 No Content
