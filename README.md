@@ -19,16 +19,70 @@
 - Yarn
 
 ## Getting Started
-
+  >
   > clone repo:
+  >
   'git clone [https://github.com/cezarcozta/VUTTR.git]'
+  >
   > create postgres database:
     > Database name: vuttr
     > owner: postgres
   > yarn
   > yarn dev:server
-
+  >
 ----------------------------------------------------------------------------
+
+### POST User
+
+- REQUEST:
+  - /users
+
+ ```json
+  {
+    "name":"cezar",
+    "email": "cezar@gmail.com",
+    "password": "123123",
+  }
+```
+
+- REPONSE:
+
+  ```json
+  {
+  "name": "cezar",
+  "email": "cezar@gmail.com",
+  "id": "8b405a22-3b52-4905-acda-d34d4f346f4d",
+  "created_at": "2020-06-29T17:44:31.537Z",
+  "updated_at": "2020-06-29T17:44:31.537Z"
+  }
+  ```
+
+### POST Session
+
+- REQUEST:
+  - /sessions
+
+ ```json
+  {
+   "email": "cezar@gmail.com",
+   "password": "123123"
+  }
+```
+
+- REPONSE:
+
+  ```json
+  {
+  "user": {
+    "id": "8b405a22-3b52-4905-acda-d34d4f346f4d",
+    "name": "cezar",
+    "email": "cezar@gmail.com",
+    "created_at": "2020-06-29T17:44:31.537Z",
+    "updated_at": "2020-06-29T17:44:31.537Z"
+  },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTM0NDE4OTcsImV4cCI6MTU5MzUyODI5Nywic3ViIjoiOGI0MDVhMjItM2I1Mi00OTA1LWFjZGEtZDM0ZDRmMzQ2ZjRkIn0.OdMQqIZiMn_Md66Zii7uLPK1PKcycy3OKXregab1YUw"
+  }
+  ```
 
 ### GET Tag
 
