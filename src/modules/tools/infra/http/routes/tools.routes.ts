@@ -14,7 +14,7 @@ toolsRouter.post(
   celebrate({
     [Segments.BODY]: {
       title: Joi.string().required(),
-      url: Joi.string().requeride(),
+      url: Joi.string().required(),
       description: Joi.string().required(),
       tags: Joi.string().required(),
     },
