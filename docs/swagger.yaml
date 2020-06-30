@@ -1,0 +1,12 @@
+swagger: "2.0"
+info:
+  description: "The Application is a simple repository to manager tool and their name, links, descriptions and tags."
+  version: "1.0.0"
+  title: "VUTTR"
+host: "localhost"
+basePath: "http://localhost:3000"
+tags:
+
+schemes:
+- "HTTP"
+paths:
