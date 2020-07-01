@@ -1,0 +1,469 @@
+_type: export
+__export_format: 4
+__export_date: 2020-07-01T12:52:22.329Z
+__export_source: insomnia.desktop.app:v2020.2.2
+resources:
+  - _id: req_wrk_808777ed404b482f88d50e57896b3d2eac19a928
+    authentication:
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTM1NTU5MzEsImV4cCI6MTU5MzY0MjMzMSwic3ViIjoiOWUxNTMyN2MtOTA0Yi00N2U0LThlYzItMDIxZDUyZDA2MmQzIn0.pHgtCpQOnrCNklONFJjNqTVFRZX61wx_HmKZjSBJ7fA
+      type: bearer
+    body: {}
+    created: 1593556653539
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1593556653539
+    method: GET
+    modified: 1593556718451
+    name: Find Tool By Tag
+    parameters: []
+    parentId: wrk_808777ed404b482f88d50e57896b3d2e
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url }}/tools?tags=planejamento"
+    _type: request
+  - _id: wrk_808777ed404b482f88d50e57896b3d2e
+    created: 1592186209852
+    description: The Application is a simple repository to manager tool and their
+      name, links, descriptions and tags.
+    modified: 1593556653598
+    name: VUTTR 1.0.0
+    parentId: null
+    scope: null
+    _type: workspace
+  - _id: req_wrk_808777ed404b482f88d50e57896b3d2ed46eccc6
+    authentication: {}
+    body: {}
+    created: 1593555193390
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1593555193390
+    method: POST
+    modified: 1593556653584
+    name: Create a new session
+    parameters: []
+    parentId: wrk_808777ed404b482f88d50e57896b3d2e
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url }}/sessions"
+    _type: request
+  - _id: req_wrk_808777ed404b482f88d50e57896b3d2e74d41e77
+    authentication: {}
+    body: {}
+    created: 1593555193385
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1593555193385
+    method: POST
+    modified: 1593556653581
+    name: Create a new User
+    parameters: []
+    parentId: wrk_808777ed404b482f88d50e57896b3d2e
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url }}/users"
+    _type: request
+  - _id: req_wrk_808777ed404b482f88d50e57896b3d2e4f9b1896
+    authentication: {}
+    body: {}
+    created: 1593555193381
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1593555193381
+    method: GET
+    modified: 1593556653575
+    name: List all Tags in database
+    parameters: []
+    parentId: wrk_808777ed404b482f88d50e57896b3d2e
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url }}/tags"
+    _type: request
+  - _id: req_wrk_808777ed404b482f88d50e57896b3d2e9e138c59
+    authentication: {}
+    body: {}
+    created: 1593555193378
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1593555193378
+    method: POST
+    modified: 1593556653571
+    name: Create and save new Tag in database
+    parameters: []
+    parentId: wrk_808777ed404b482f88d50e57896b3d2e
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url }}/tags"
+    _type: request
+  - _id: req_wrk_808777ed404b482f88d50e57896b3d2eb4906646
+    authentication: {}
+    body: {}
+    created: 1593555193375
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1593555193375
+    method: PUT
+    modified: 1593556653565
+    name: Update a Tag from database by id
+    parameters: []
+    parentId: wrk_808777ed404b482f88d50e57896b3d2e
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url }}/tags"
+    _type: request
+  - _id: req_wrk_808777ed404b482f88d50e57896b3d2e1f9ef935
+    authentication: {}
+    body: {}
+    created: 1593555193368
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1593555193368
+    method: DELETE
+    modified: 1593556653559
+    name: Remove a Tag from database by tag id
+    parameters: []
+    parentId: wrk_808777ed404b482f88d50e57896b3d2e
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url }}/tags"
+    _type: request
+  - _id: req_wrk_808777ed404b482f88d50e57896b3d2eab4d7dd0
+    authentication: {}
+    body: {}
+    created: 1593555193366
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1593555193366
+    method: GET
+    modified: 1593556653554
+    name: List all Tools in database
+    parameters: []
+    parentId: wrk_808777ed404b482f88d50e57896b3d2e
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url }}/tools"
+    _type: request
+  - _id: req_wrk_808777ed404b482f88d50e57896b3d2e551f5505
+    authentication: {}
+    body: {}
+    created: 1593555193362
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1593555193362
+    method: POST
+    modified: 1593556653549
+    name: Create and save new Tool in database
+    parameters: []
+    parentId: wrk_808777ed404b482f88d50e57896b3d2e
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url }}/tools"
+    _type: request
+  - _id: req_wrk_808777ed404b482f88d50e57896b3d2e156a3adc
+    authentication: {}
+    body: {}
+    created: 1593555193360
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1593555193360
+    method: PUT
+    modified: 1593556653546
+    name: Update a Tool from database by id
+    parameters: []
+    parentId: wrk_808777ed404b482f88d50e57896b3d2e
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url }}/tools"
+    _type: request
+  - _id: req_wrk_808777ed404b482f88d50e57896b3d2e2899d9d5
+    authentication: {}
+    body: {}
+    created: 1593555193357
+    description: ""
+    headers: []
+    isPrivate: false
+    metaSortKey: -1593555193357
+    method: DELETE
+    modified: 1593556653543
+    name: Remove a Tool from database by tool id
+    parameters: []
+    parentId: wrk_808777ed404b482f88d50e57896b3d2e
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ base_url }}/tools"
+    _type: request
+  - _id: env_0b363fb7ba0182dda59187bee65763efc228cf5a
+    color: null
+    created: 1592186210457
+    data:
+      base_url: "{{ scheme }}://{{ host }}{{ base_path }}"
+    dataPropertyOrder: null
+    isPrivate: false
+    metaSortKey: 1592186210457
+    modified: 1593556653594
+    name: Base environment
+    parentId: wrk_808777ed404b482f88d50e57896b3d2e
+    _type: environment
+  - _id: jar_0b363fb7ba0182dda59187bee65763efc228cf5a
+    cookies: []
+    created: 1592186210470
+    modified: 1592186210470
+    name: Default Jar
+    parentId: wrk_808777ed404b482f88d50e57896b3d2e
+    _type: cookie_jar
+  - _id: spc_f5938ac388b548daa71005a5bd8167ee
+    contentType: yaml
+    contents: >
+      openapi: 3.0.0
+
+      info:
+        title: VUTTR
+        description: The Application is a simple repository to manager tool and their name, links, descriptions and tags.
+        license: 
+          name: MIT
+        contact:
+          name: cezarcozta
+          email: cezarcozta@gmail.com
+        version: 1.0.0
+      servers:
+        - url: http://localhost:3000
+      paths:
+        /sessions:
+          post:
+            summary: Create a new session
+            operationId: 
+            tags:
+              - sessions
+            responses:
+              '200':
+                description: A User Object with relatade token
+                content:
+                  application/json:    
+                    schema:
+              default:
+                description: unexpected error
+                content:
+                  application/json:
+                    schema:
+        /users:
+          post:
+            summary: Create a new User
+            operationId:
+            tags:
+              - users
+            responses:
+              '200':
+                description: A User Object
+                content:
+                  application/json:    
+                    schema:
+              default:
+                description: unexpected error
+                content:
+                  application/json:
+                    schema:
+        /tags:
+          get:
+            summary: List all Tags in database
+            operationId: 
+            tags:
+              - tags
+            responses:
+              '200':
+                description: An array of Tags objects
+                content:
+                  application/json:    
+                    schema:
+              default:
+                description: unexpected error
+                content:
+                  application/json:
+                    schema:
+          post:
+            summary: Create and save new Tag in database
+            operationId: 
+            tags:
+              - tags
+            responses:
+              '200':
+                description: A Tag Object
+                content:
+                  application/json:    
+                    schema:
+              default:
+                description: unexpected error
+                content:
+                  application/json:
+                    schema:
+          put:
+            summary: Update a Tag from database by id
+            operationId: 
+            tags:
+              - tags
+            responses:
+              '204':
+                description: A Tag Object Updated
+                content:
+          delete:
+            summary: Remove a Tag from database by tag id
+            operationId: 
+            tags:
+              - tags
+            responses:
+              '204':
+                description: A Tag Object Deleted
+                content:
+        /tools:
+          get:
+            summary: List all Tools in database
+            operationId: 
+            tags:
+              - tools
+            responses:
+              '200':
+                description: An array of Tools objects
+                content:
+                  application/json:    
+                    schema:
+              default:
+                description: unexpected error
+                content:
+                  application/json:
+                    schema:
+          post:
+            summary: Create and save new Tool in database
+            operationId: 
+            tags:
+              - tools
+            responses:
+              '200':
+                description: A Tool Object
+                content:
+                  application/json:    
+                    schema:
+              default:
+                description: unexpected error
+                content:
+                  application/json:
+                    schema:
+          put:
+            summary: Update a Tool from database by id
+            operationId: 
+            tags:
+              - tools
+            responses:
+              '204':
+                description: A Tool Object Updated
+                content:
+          delete:
+            summary: Remove a Tool from database by tool id
+            operationId: 
+            tags:
+              - tools
+            responses:
+              '204':
+                description: A Tool Object Deleted
+                content:
+        /tools?tags=planejamnto:
+          get:
+            summary: Find Tool By Tag
+            operationId:
+            tags:
+              - tools
+            responses:
+              '200':
+                description: An arry of Tools
+                content:
+                  application/json:    
+                    schema:
+              default:
+                description: unexpected error
+                content:
+                  application/json:
+                    schema:
+    created: 1592186209879
+    fileName: VUTTR
+    modified: 1593556653602
+    parentId: wrk_808777ed404b482f88d50e57896b3d2e
+    _type: api_spec
+  - _id: env_2332469ed232411ea9140983a2b084b3
+    color: "#86e90c"
+    created: 1592186217566
+    data:
+      baseURL: http://localhost:3000
+    dataPropertyOrder:
+      "&":
+        - baseURL
+    isPrivate: false
+    metaSortKey: 1592186217566
+    modified: 1592186274090
+    name: DEV
+    parentId: env_0b363fb7ba0182dda59187bee65763efc228cf5a
+    _type: environment
+  - _id: env_env_0b363fb7ba0182dda59187bee65763efc228cf5a_sub
+    color: null
+    created: 1593555193396
+    data:
+      base_path: ""
+      host: localhost:3000
+      scheme: http
+    dataPropertyOrder: null
+    isPrivate: false
+    metaSortKey: 1593555193396
+    modified: 1593556653589
+    name: OpenAPI env
+    parentId: env_0b363fb7ba0182dda59187bee65763efc228cf5a
+    _type: environment
