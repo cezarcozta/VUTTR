@@ -5,10 +5,6 @@ import IToolsTagsRepository from '../../../repositories/IToolsTagsRepository';
 
 import ToolsTags from '../entities/ToolsTags';
 
-interface IFindTags {
-  tag_title: string;
-}
-
 class ToolsTagsRepository implements IToolsTagsRepository {
   private ormRepository: Repository<ToolsTags>;
 
