@@ -9,18 +9,22 @@ class ToolsRepository implements IToolsRepository {
   private tools: Tool[] = [];
 
   public async createAndSave({
-    name,
+    title,
     url,
     description,
     tags,
   }: ICreateToolDTO): Promise<Tool> {
     const tool = new Tool();
 
-    Object.assign(tool, { id: uuid(), name, url, description, tags });
+    Object.assign(tool, { id: uuid(), title, url, description, tags });
 
     this.tools.push(tool);
 
     return tool;
+  }
+
+  public async findAll(): Promise<Tool[]> {
+    return this.tools;
   }
 }
 
