@@ -5,7 +5,7 @@
 
 ## API Rest
 
->The Application is a simple repository to manager tool and their name, links, descriptions and tags. (bossabox[https://app.bossabox.com/])
+>The Application is a simple repository to manager tool and their name, links, descriptions and tags. [bossabox](https://app.bossabox.com/)
 
 ### Tech and Tools
 
@@ -33,7 +33,7 @@
 - Clone.
 
 `
-git clone [https://github.com/cezarcozta/VUTTR.git]
+git clone (https://github.com/cezarcozta/VUTTR.git)
 `
 
 - Access cloned folder
@@ -325,3 +325,13 @@ yarn dev:server
 
 - RESPONSE:
     204 No Content
+
+### Developed by:
+
+- César Augusto Costa :sunglasses: :sunglasses: :sunglasses:
+
+:: cezarcozta@gmail.com
+:: [Linkedin/cezarcozta](www.linkedin.com/in/cezarcozta)
+:: [Twitter@cezarcozta](www.twitter.com/cezarcozta)
+:: [Instagram@cezarcozta](www.instagram.com/cezarcozta)
+:: [Facebook/cezarcozta](www.facebook.com/cezarcozta)
