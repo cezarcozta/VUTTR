@@ -326,7 +326,7 @@ yarn dev:server
 - RESPONSE:
     204 No Content
 
-### Developed by:
+### Developed by
 
 - César Augusto Costa :sunglasses: :sunglasses: :sunglasses:
 
