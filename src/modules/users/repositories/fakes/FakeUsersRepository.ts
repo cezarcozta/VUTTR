@@ -9,13 +9,17 @@ class FakeUsersRepository implements IUsersRepository {
   private users: User[] = [];
 
   public async createAndSave(userData: ICreateUserDTO): Promise<User> {
-    const user = new User();
+    try {
+      const user = new User();
 
-    Object.assign(user, { id: uuid() }, userData);
+      Object.assign(user, { id: uuid() }, userData);
 
-    this.users.push(user);
+      this.users.push(user);
 
-    return user;
+      return user;
+    } catch (error) {
+      throw new Error(error.message);
+    }
   }
 
   public async findUserByID(id: string): Promise<User | undefined> {

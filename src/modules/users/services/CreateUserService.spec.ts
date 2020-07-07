@@ -25,22 +25,6 @@ describe('CreateUser', () => {
     expect(user).toHaveProperty('id');
   });
 
-  it('Should not be able to create a new user with same email from another', async () => {
-    await createUser.execute({
-      name: 'John Doe',
-      email: 'johndoe@exemple.com',
-      password: '123123',
-    });
-
-    await expect(
-      createUser.execute({
-        name: 'John Doe',
-        email: 'johndoe@exemple.com',
-        password: '123123',
-      }),
-    ).rejects.toBeInstanceOf(Error);
-  });
-
   it('Should NOT be able to create a new user with same email from another', async () => {
     await createUser.execute({
       name: 'John Doe',

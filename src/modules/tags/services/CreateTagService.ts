@@ -22,9 +22,7 @@ class CreateTagService {
         throw new Error('Tag already exists');
       }
 
-      const tag = await this.tagsRepository.createAndSave({
-        title,
-      });
+      const tag = await this.tagsRepository.createAndSave({ title });
 
       return tag;
     } catch (error) {

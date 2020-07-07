@@ -5,6 +5,11 @@ import IToolsRepository from '../repositories/IToolsRepository';
 import Tool from '../infra/typeorm/entities/Tools';
 import IToolsTagsRepository from '../repositories/IToolsTagsRepository';
 
+interface IFindTools {
+  id: string;
+  title: string;
+  tag_title: string;
+}
 @injectable()
 class ListToolsService {
   constructor(
@@ -15,7 +20,7 @@ class ListToolsService {
     private toolsTagsRepository: IToolsTagsRepository,
   ) {}
 
-  public async execute(tag_title: string): Promise<Tool[]> {
+  public async execute({ tag_title }: IFindTools): Promise<Tool[]> {
     try {
       const toolsByTagTitle = await this.toolsTagsRepository.findToolsIDByTags(
         tag_title,

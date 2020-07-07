@@ -11,13 +11,9 @@ class ListTagsService {
   ) {}
 
   public async execute(): Promise<Tag[] | undefined> {
-    try {
-      const tag = await this.tagsRepository.findAllTags();
+    const tag = await this.tagsRepository.findAllTags();
 
-      return tag;
-    } catch (error) {
-      throw new Error(error.message);
-    }
+    return tag;
   }
 }
 

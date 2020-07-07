@@ -1,5 +1,6 @@
 import { uuid } from 'uuidv4';
 
+import ToolsTags from '@modules/tools/infra/typeorm/entities/ToolsTags';
 import IToolsRepository from '../IToolsRepository';
 import ICreateToolDTO from '../../dtos/ICreateToolDTO';
 import IUpdateToolDTO from '../../dtos/IUpdateToolDTO';
@@ -14,6 +15,8 @@ interface IFindTool {
 class ToolsRepository implements IToolsRepository {
   private tools: Tool[] = [];
 
+  private tags: ToolsTags[] = [];
+
   public async createAndSave({
     title,
     url,
@@ -22,7 +25,7 @@ class ToolsRepository implements IToolsRepository {
   }: ICreateToolDTO): Promise<Tool> {
     const tool = new Tool();
 
-    Object.assign(tool, { id: uuid(), title, url, description, tags });
+    Object.assign(tool, { id: uuid() }, title, url, description, tags);
 
     this.tools.push(tool);
 
@@ -62,12 +65,8 @@ class ToolsRepository implements IToolsRepository {
     return tool;
   }
 
-  public async findAllToolsByIDs(ids: IFindTool[]): Promise<Tool[]> {
-    return this.tools.filter(() => {
-      return {
-        id: ids.map(t => t.id),
-      };
-    });
+  public async findAllToolsByIDs(ids: string[]): Promise<Tool[]> {
+    return this.tools.filter(() => ids);
   }
 
   public async findAll(): Promise<Tool[]> {

@@ -2,10 +2,6 @@ import { injectable, inject } from 'tsyringe';
 
 import ITagsRepository from '../repositories/ITagsRepository';
 
-interface IRequest {
-  id: string;
-}
-
 @injectable()
 class RemoveTagservice {
   constructor(
@@ -13,12 +9,12 @@ class RemoveTagservice {
     private tagsRepository: ITagsRepository,
   ) {}
 
-  public async execute({ id }: IRequest): Promise<void> {
+  public async execute(id: string): Promise<void> {
     try {
       const tag = await this.tagsRepository.findTagByID(id);
 
       if (!tag) {
-        throw new Error('Tool not found!');
+        throw new Error('Tag not found!');
       }
 
       await this.tagsRepository.removeTag(tag.id);

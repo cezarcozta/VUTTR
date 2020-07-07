@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import Tag from '../infra/typeorm/entities/Tag';
-import ICreateTagDTO from '../dtos/ICreateTagDTO';
+import ICreateTagDTO from '../dtos/CreateTagDTO';
 
 interface IFindTags {
   title: string;

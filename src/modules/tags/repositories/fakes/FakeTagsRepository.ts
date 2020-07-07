@@ -1,7 +1,7 @@
 import { uuid } from 'uuidv4';
 
+import ICreateTagDTO from '@modules/tags/dtos/CreateTagDTO';
 import ITagsRepository from '../ITagsRepository';
-import ICreateTagDTO from '../../dtos/ICreateTagDTO';
 
 import Tag from '../../infra/typeorm/entities/Tag';
 
@@ -13,18 +13,24 @@ interface IFindTags {
 class TagsRepository implements ITagsRepository {
   private tags: Tag[] = [];
 
-  public async createAndSave({ title }: ICreateTagDTO): Promise<Tag> {
-    const tag = new Tag();
+  public async createAndSave(title: ICreateTagDTO): Promise<Tag> {
+    try {
+      const tag = new Tag();
 
-    Object.assign(tag, { id: uuid(), title });
+      Object.assign(tag, { id: uuid() }, title);
 
-    this.tags.push(tag);
+      this.tags.push(tag);
 
-    return tag;
+      return tag;
+    } catch (error) {
+      throw new Error(error.message);
+    }
   }
 
   public async removeTag(id: string): Promise<void> {
-    this.tags.splice(Number(id), 1);
+    const tagIndex = this.tags.findIndex(tag => tag.id === id);
+
+    this.tags.splice(tagIndex, 1);
   }
 
   public async findAllTags(): Promise<Tag[]> {
@@ -58,17 +64,13 @@ class TagsRepository implements ITagsRepository {
   }
 
   public async findTagByTitle(title: string): Promise<Tag | undefined> {
-    const tag = this.tags.find(t => t.title === title);
+    const findTag = this.tags.find(tag => tag.title === title);
 
-    if (!tag) {
-      throw new Error('Tag not found');
-    }
-
-    return tag;
+    return findTag;
   }
 
-  public async updateTag({ title }: Tag): Promise<Tag> {
-    const updateTag = this.tags.find(t => t.title === title);
+  public async updateTag({ id, title }: Tag): Promise<Tag> {
+    const updateTag = this.tags.find(tag => tag.id === id);
 
     if (!updateTag) {
       throw new Error('Tag not found');

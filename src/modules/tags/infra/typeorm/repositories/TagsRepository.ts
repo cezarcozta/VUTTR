@@ -1,9 +1,9 @@
 import { getRepository, Repository, In } from 'typeorm';
 
 import ITagsRepository from '@modules/tags/repositories/ITagsRepository';
-import ICreateTagDTO from '@modules/tags/dtos/ICreateTagDTO';
 
 import Tag from '@modules/tags/infra/typeorm/entities/Tag';
+import ICreateTagDTO from '@modules/tags/dtos/CreateTagDTO';
 
 interface IFindTags {
   title: string;
